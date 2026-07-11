@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import VLibras from "@/components/VLibras";
+import MotionProvider from "@/components/MotionProvider";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -49,7 +50,13 @@ export default function RootLayout({
       className={`${bricolage.variable} ${manrope.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <a
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-linha focus:text-noite focus:px-4 focus:py-2 focus:rounded-full font-mono text-sm"
+        >
+          Pular para o conteúdo
+        </a>
+        <MotionProvider>{children}</MotionProvider>
         <VLibras />
       </body>
     </html>

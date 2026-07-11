@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { marcos, type Foto } from "@/data/timeline";
 import Lightbox from "./Lightbox";
 
@@ -11,6 +11,7 @@ export default function Timeline() {
     null
   );
   const [expandidos, setExpandidos] = useState<Record<string, boolean>>({});
+  const reduzirMovimento = useReducedMotion();
 
   return (
     <section aria-label="Linha do tempo 2008 a 2019" className="relative pb-24">
@@ -57,9 +58,11 @@ export default function Timeline() {
                     fill="transparent"
                     stroke="rgba(232, 185, 74, 0.55)"
                     strokeWidth="1.5"
-                    strokeDasharray="2000"
-                    initial={{ strokeDashoffset: 2000 }}
-                    whileInView={{ strokeDashoffset: 0 }}
+                    strokeDasharray={reduzirMovimento ? undefined : "2000"}
+                    initial={reduzirMovimento ? false : { strokeDashoffset: 2000 }}
+                    whileInView={
+                      reduzirMovimento ? undefined : { strokeDashoffset: 0 }
+                    }
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 3.2, ease: "easeInOut" }}
                   >
@@ -168,7 +171,7 @@ export default function Timeline() {
                                 src={f.src}
                                 alt={f.legenda}
                                 fill
-                                className="object-cover transition duration-300 group-hover:scale-105"
+                                className="object-cover object-top transition duration-300 group-hover:scale-105"
                                 sizes="(max-width: 640px) 30vw, 170px"
                               />
                               <span className="absolute inset-0 bg-noite/0 group-hover:bg-noite/25 transition" />

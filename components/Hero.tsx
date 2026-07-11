@@ -11,10 +11,10 @@ export default function Hero() {
         alt="Fachada do Centro Vocacional Tecnológico Olavo Bilac"
         fill
         priority
-        className="object-cover object-center opacity-30"
+        className="object-cover object-center opacity-60 sm:opacity-35"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-noite/40 via-noite/70 to-noite" />
+      <div className="absolute inset-0 bg-gradient-to-b from-noite/20 via-noite/60 to-noite sm:from-noite/40 sm:via-noite/70" />
 
       <div className="relative px-5 pb-14 pt-24 max-w-6xl mx-auto w-full">
         <motion.p
