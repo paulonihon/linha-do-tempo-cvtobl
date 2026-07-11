@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type { Foto } from "@/data/timeline";
 
 type Props = {
@@ -39,8 +39,28 @@ export default function Lightbox({ fotos, indice, onFechar, onNavegar }: Props) 
     };
   }, [aberto, onFechar, anterior, proxima]);
 
+  const toqueInicial = useRef<{ x: number; y: number } | null>(null);
+
   if (indice === null) return null;
   const foto = fotos[indice];
+
+  const aoTocar = (e: React.TouchEvent) => {
+    toqueInicial.current = {
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY,
+    };
+  };
+
+  const aoSoltar = (e: React.TouchEvent) => {
+    if (!toqueInicial.current) return;
+    const dx = e.changedTouches[0].clientX - toqueInicial.current.x;
+    const dy = e.changedTouches[0].clientY - toqueInicial.current.y;
+    toqueInicial.current = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) proxima();
+      else anterior();
+    }
+  };
 
   return (
     <div
@@ -64,8 +84,10 @@ export default function Lightbox({ fotos, indice, onFechar, onNavegar }: Props) 
       </div>
 
       <div
-        className="relative flex-1 my-3 sm:my-4 min-h-0"
+        className="relative flex-1 my-3 sm:my-4 min-h-0 touch-pan-y"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={aoTocar}
+        onTouchEnd={aoSoltar}
       >
         <Image
           src={foto.src}

@@ -10,6 +10,7 @@ export default function Timeline() {
   const [galeria, setGaleria] = useState<{ fotos: Foto[]; indice: number } | null>(
     null
   );
+  const [expandidos, setExpandidos] = useState<Record<string, boolean>>({});
 
   return (
     <section aria-label="Linha do tempo 2008 a 2019" className="relative pb-24">
@@ -59,14 +60,39 @@ export default function Timeline() {
                   {m.resumo}
                 </p>
                 <div className="mt-4 space-y-4">
-                  {m.paragrafos.map((p, idx) => (
-                    <p
-                      key={idx}
-                      className="text-texto-suave leading-relaxed text-[15px]"
-                    >
-                      {p}
-                    </p>
-                  ))}
+                  <p className="text-texto-suave leading-relaxed text-[15px]">
+                    {m.paragrafos[0]}
+                  </p>
+                  {m.paragrafos.length > 1 &&
+                    (expandidos[m.slug] ? (
+                      <>
+                        {m.paragrafos.slice(1).map((p, idx) => (
+                          <p
+                            key={idx}
+                            className="text-texto-suave leading-relaxed text-[15px]"
+                          >
+                            {p}
+                          </p>
+                        ))}
+                        <button
+                          onClick={() =>
+                            setExpandidos((e) => ({ ...e, [m.slug]: false }))
+                          }
+                          className="font-mono text-sm text-linha hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-linha rounded"
+                        >
+                          Recolher ↑
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        onClick={() =>
+                          setExpandidos((e) => ({ ...e, [m.slug]: true }))
+                        }
+                        className="font-mono text-sm text-linha hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-linha rounded"
+                      >
+                        Continuar lendo ↓
+                      </button>
+                    ))}
                 </div>
 
                 {m.fotos.length > 0 && (
@@ -84,8 +110,11 @@ export default function Timeline() {
                         className="w-full h-auto max-h-[480px] object-contain transition duration-300 group-hover:scale-[1.02]"
                         sizes="(max-width: 640px) 92vw, 520px"
                       />
-                      <span className="absolute bottom-2 right-2 font-mono text-[11px] text-texto bg-noite/70 rounded-full px-3 py-1 opacity-80 group-hover:opacity-100 transition">
-                        Ver em tela cheia ⤢
+                      <span
+                        aria-hidden
+                        className="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center text-sm text-texto bg-noite/70 rounded-full opacity-80 group-hover:opacity-100 transition"
+                      >
+                        ⤢
                       </span>
                     </button>
                     <figcaption className="mt-2">

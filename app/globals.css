@@ -61,6 +61,15 @@ body {
   -webkit-text-stroke: 1.5px rgba(232, 185, 74, 0.55);
 }
 
+/* VLibras: widget ancorado no canto inferior direito, fora da área de leitura */
+[vw].enabled {
+  top: auto !important;
+  bottom: 20px !important;
+  right: 12px !important;
+  left: auto !important;
+  transform: none !important;
+}
+
 ::selection {
   background: var(--linha);
   color: var(--noite);
