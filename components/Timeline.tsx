@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { marcos, type Foto } from "@/data/timeline";
 import Lightbox from "./Lightbox";
 
@@ -63,36 +63,41 @@ export default function Timeline() {
                   <p className="text-texto-suave leading-relaxed text-[15px]">
                     {m.paragrafos[0]}
                   </p>
-                  {m.paragrafos.length > 1 &&
-                    (expandidos[m.slug] ? (
-                      <>
-                        {m.paragrafos.slice(1).map((p, idx) => (
-                          <p
-                            key={idx}
-                            className="text-texto-suave leading-relaxed text-[15px]"
+                  {m.paragrafos.length > 1 && (
+                    <>
+                      <AnimatePresence initial={false}>
+                        {expandidos[m.slug] && (
+                          <motion.div
+                            key="mais"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: "easeInOut" }}
+                            className="overflow-hidden"
                           >
-                            {p}
-                          </p>
-                        ))}
-                        <button
-                          onClick={() =>
-                            setExpandidos((e) => ({ ...e, [m.slug]: false }))
-                          }
-                          className="font-mono text-sm text-linha hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-linha rounded"
-                        >
-                          Recolher ↑
-                        </button>
-                      </>
-                    ) : (
+                            <div className="space-y-4">
+                              {m.paragrafos.slice(1).map((p, idx) => (
+                                <p
+                                  key={idx}
+                                  className="text-texto-suave leading-relaxed text-[15px]"
+                                >
+                                  {p}
+                                </p>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                       <button
                         onClick={() =>
-                          setExpandidos((e) => ({ ...e, [m.slug]: true }))
+                          setExpandidos((e) => ({ ...e, [m.slug]: !e[m.slug] }))
                         }
                         className="font-mono text-sm text-linha hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-linha rounded"
                       >
-                        Continuar lendo ↓
+                        {expandidos[m.slug] ? "Recolher ↑" : "Continuar lendo ↓"}
                       </button>
-                    ))}
+                    </>
+                  )}
                 </div>
 
                 {m.fotos.length > 0 && (
