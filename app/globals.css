@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --noite: #0b1526;
+  --noite-2: #101c31;
+  --carta: #16243c;
+  --linha: #e8b94a;
+  --azul: #5aa9ff;
+  --texto: #edf1f7;
+  --texto-suave: #98a6bb;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-noite: var(--noite);
+  --color-noite-2: var(--noite-2);
+  --color-carta: var(--carta);
+  --color-linha: var(--linha);
+  --color-azul: var(--azul);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-plex-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--noite);
+  color: var(--texto);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+/* linha de costura: tracejado vertical que costura os marcos */
+.costura-v {
+  background-image: linear-gradient(
+    to bottom,
+    var(--linha) 0 10px,
+    transparent 10px 18px
+  );
+  background-size: 2px 18px;
+  background-repeat: repeat-y;
+  background-position: center top;
+}
+
+.costura-h {
+  background-image: linear-gradient(
+    to right,
+    var(--linha) 0 10px,
+    transparent 10px 18px
+  );
+  background-size: 18px 2px;
+  background-repeat: repeat-x;
+  background-position: left center;
+}
+
+.ano-vazado {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(232, 185, 74, 0.55);
+}
+
+::selection {
+  background: var(--linha);
+  color: var(--noite);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
