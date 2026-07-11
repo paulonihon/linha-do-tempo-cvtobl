@@ -61,7 +61,7 @@ export default function Timeline() {
                     initial={{ strokeDashoffset: 2000 }}
                     whileInView={{ strokeDashoffset: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 1.6, ease: "easeInOut" }}
+                    transition={{ duration: 3.2, ease: "easeInOut" }}
                   >
                     {m.ano}
                   </motion.text>
