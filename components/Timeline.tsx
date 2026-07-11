@@ -34,17 +34,39 @@ export default function Timeline() {
             />
 
             <div className="pl-16 sm:pl-0">
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className={`font-display ano-vazado text-6xl sm:text-8xl font-extrabold leading-none select-none ${
-                  i % 2 ? "sm:pl-[54%] sm:text-left" : "sm:pr-[54%] sm:text-right"
+              <div
+                className={`select-none ${
+                  i % 2
+                    ? "sm:pl-[54%]"
+                    : "sm:pr-[54%] sm:flex sm:justify-end"
                 }`}
               >
-                {m.ano}
-              </motion.p>
+                {/* ano costurado: contorno se desenha como linha no tecido */}
+                <svg
+                  viewBox="0 0 300 110"
+                  className="w-[10.5rem] sm:w-[17rem] h-auto overflow-visible"
+                  role="img"
+                  aria-label={m.ano}
+                >
+                  <motion.text
+                    x="0"
+                    y="92"
+                    className="font-display"
+                    fontSize="104"
+                    fontWeight="800"
+                    fill="transparent"
+                    stroke="rgba(232, 185, 74, 0.55)"
+                    strokeWidth="1.5"
+                    strokeDasharray="2000"
+                    initial={{ strokeDashoffset: 2000 }}
+                    whileInView={{ strokeDashoffset: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 1.6, ease: "easeInOut" }}
+                  >
+                    {m.ano}
+                  </motion.text>
+                </svg>
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 28 }}
