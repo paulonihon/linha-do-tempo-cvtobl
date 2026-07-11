@@ -27,6 +27,25 @@ html {
   scroll-behavior: smooth;
 }
 
+/* escala proporcional em telas grandes: tudo em rem cresce junto */
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 24px;
+  }
+}
+
 body {
   background: var(--noite);
   color: var(--texto);

@@ -107,7 +107,7 @@ export default function Timeline() {
                         alt={m.fotos[0].legenda}
                         width={1600}
                         height={1200}
-                        className="w-full h-auto max-h-[480px] object-contain transition duration-300 group-hover:scale-[1.02]"
+                        className="w-full h-auto max-h-[30rem] object-contain transition duration-300 group-hover:scale-[1.02]"
                         sizes="(max-width: 640px) 92vw, 520px"
                       />
                       <span
