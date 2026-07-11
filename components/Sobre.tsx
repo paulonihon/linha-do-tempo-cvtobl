@@ -1,13 +1,5 @@
 import { sobreProduto } from "@/data/timeline";
 
-const liberdades = [
-  { nome: "Reusar", desc: "usar o material em qualquer contexto educativo" },
-  { nome: "Revisar", desc: "adaptar, modificar e traduzir" },
-  { nome: "Remixar", desc: "combinar com outros materiais" },
-  { nome: "Redistribuir", desc: "compartilhar com outras pessoas" },
-  { nome: "Reter", desc: "guardar a própria cópia" },
-];
-
 export default function Sobre() {
   return (
     <section
@@ -25,7 +17,7 @@ export default function Sobre() {
           Sobre esta Linha do Tempo
         </h2>
 
-        <div className="grid sm:grid-cols-2 gap-10 mt-8">
+        <div className="mt-8 max-w-3xl">
           <div className="space-y-4 text-texto-suave leading-relaxed text-[15px]">
             <p>
               Esta Linha do Tempo é o Produto Educacional vinculado à
@@ -44,26 +36,6 @@ export default function Sobre() {
             </p>
           </div>
 
-          <div>
-            <h3 className="font-display text-lg font-bold mb-4">
-              Licença aberta, 5 liberdades
-            </h3>
-            <ul className="space-y-3">
-              {liberdades.map((l) => (
-                <li key={l.nome} className="flex gap-3 items-baseline">
-                  <span className="font-mono text-linha text-sm shrink-0">
-                    {l.nome}
-                  </span>
-                  <span className="text-texto-suave text-sm">{l.desc}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="font-mono text-xs text-texto-suave/70 mt-6">
-              Licença Creative Commons — o produto pode ser adaptado às
-              necessidades de diferentes turmas, devolvendo à sociedade novos
-              produtos educacionais num continuum.
-            </p>
-          </div>
         </div>
       </div>
     </section>
