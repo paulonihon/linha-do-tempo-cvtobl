@@ -24,7 +24,7 @@ export default function Contexto() {
         </p>
       </div>
 
-      <div className="mt-10 flex gap-5 overflow-x-auto px-5 pb-4 snap-x snap-mandatory [scrollbar-width:none] md:grid md:grid-cols-2 2xl:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0 md:max-w-6xl md:mx-auto">
+      <div className="mt-10 flex gap-5 overflow-x-auto px-5 pb-4 snap-x snap-mandatory [scrollbar-width:none] md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:pb-0 md:max-w-6xl md:mx-auto">
         {contexto.map((c, i) => (
           <motion.article
             key={c.titulo}
