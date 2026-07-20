@@ -24,11 +24,13 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://linha-do-tempo-cvtobl.vercel.app"),
-  title: "Linha do Tempo do CVT Olavo Bilac — 2008 a 2019",
+  title:
+    "Entre linhas, máquinas e memórias: a moda na história da EPT no CVT Olavo Bilac, Duque de Caxias/RJ",
   description:
-    "Marcos históricos, políticos e pedagógicos do Centro Vocacional Tecnológico Olavo Bilac, em Duque de Caxias/RJ. Produto Educacional do ProfEPT — Colégio Pedro II.",
+    "Linha do tempo (2008–2019) do Centro Vocacional Tecnológico Olavo Bilac, em Duque de Caxias/RJ. Produto Educacional do ProfEPT — Colégio Pedro II.",
   openGraph: {
-    title: "Linha do Tempo do CVT Olavo Bilac — 2008 a 2019",
+    title:
+      "Entre linhas, máquinas e memórias: a moda na história da EPT no CVT Olavo Bilac, Duque de Caxias/RJ",
     description:
       "Memória institucional da educação profissional em Duque de Caxias/RJ. Produto Educacional do ProfEPT — Colégio Pedro II.",
     locale: "pt_BR",

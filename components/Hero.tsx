@@ -23,18 +23,27 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="font-mono text-linha text-xs sm:text-sm tracking-[0.25em] uppercase mb-4"
         >
-          Memória institucional · 2008–2019
+          Linha do Tempo · 2008–2019
         </motion.p>
 
         <motion.h1
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.12 }}
-          className="font-display text-[2.6rem] leading-[1.02] sm:text-6xl md:text-7xl font-extrabold"
+          className="font-display text-[2.2rem] leading-[1.05] sm:text-5xl md:text-6xl font-extrabold max-w-4xl"
         >
-          Linha do Tempo do{" "}
-          <span className="text-linha">CVT Olavo Bilac</span>
+          Entre linhas, máquinas{" "}
+          <span className="text-linha">e memórias</span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="font-display text-lg sm:text-2xl font-semibold text-texto mt-4 max-w-3xl"
+        >
+          A moda na história da EPT no CVT Olavo Bilac, Duque de Caxias/RJ
+        </motion.p>
 
         <motion.div
           initial={{ scaleX: 0 }}
@@ -52,7 +61,7 @@ export default function Hero() {
           Os marcos históricos, políticos e pedagógicos do Centro Vocacional
           Tecnológico Olavo Bilac, em Duque de Caxias/RJ — onde a educação
           profissional pública encontrou a moda, o carnaval e a luta de um
-          bairro operário da Baixada Fluminense.
+          bairro da Baixada Fluminense.
         </motion.p>
 
         <motion.a

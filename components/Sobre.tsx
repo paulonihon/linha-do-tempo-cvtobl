@@ -12,9 +12,9 @@ export default function Sobre() {
         </p>
         <h2
           id="titulo-sobre"
-          className="font-display text-3xl sm:text-4xl font-bold max-w-2xl"
+          className="font-display text-3xl sm:text-4xl font-bold max-w-3xl"
         >
-          Sobre esta Linha do Tempo
+          {sobreProduto.produto}
         </h2>
 
         <div className="mt-8 max-w-3xl">

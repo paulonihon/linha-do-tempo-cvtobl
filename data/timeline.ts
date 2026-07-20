@@ -23,7 +23,7 @@ export type CartaoContexto = {
 export const contexto: CartaoContexto[] = [
   {
     periodo: "1943",
-    titulo: "Duque de Caxias, cidade operária",
+    titulo: "Duque de Caxias, polo industrial",
     texto:
       "Emancipado de Nova Iguaçu em 1943, o município se transforma em polo industrial com a Fábrica Nacional de Motores, em Xerém, e a Refinaria Duque de Caxias (REDUC), concluída em 1961. O crescimento econômico, porém, convive com desigualdade social e com a carência de serviços públicos.",
     foto: {
@@ -47,7 +47,7 @@ export const contexto: CartaoContexto[] = [
     periodo: "1995–1997",
     titulo: "Do CEI à FAETEC",
     texto:
-      "O Complexo de Quintino deixa de ser espaço de internação de menores e vira centro de formação educacional com o CEI (1995). Em 1997, a Lei estadual n.º 2.735 cria a Fundação de Apoio à Escola Técnica (FAETEC), responsável pela educação profissional pública e gratuita no Estado do Rio de Janeiro.",
+      "O Complexo de Quintino deixa de ser espaço de internação de crianças e jovens e vira centro de formação educacional com o CEI (1995). Em 1997, a Lei estadual n.º 2.735 cria a Fundação de Apoio à Escola Técnica (FAETEC), responsável pela educação profissional pública e gratuita no Estado do Rio de Janeiro.",
     foto: {
       src: "/images/cei-slogan-1996.jpg",
       legenda: "Slogan do CEI utilizado em 1996",
@@ -310,6 +310,8 @@ export const sobreProduto = {
     "Mestrado Profissional em Educação Profissional e Tecnológica (ProfEPT) — Colégio Pedro II",
   linhaPesquisa:
     "Linha de Pesquisa 2: Organização e Memória de Espaços Pedagógicos na EPT — Macroprojeto 4: História e Memórias no contexto da EPT",
+  produto:
+    "Entre linhas, máquinas e memórias: a moda na história da EPT no CVT Olavo Bilac, Duque de Caxias/RJ",
   dissertacao:
     "Identidade, história e memória da Educação Profissional Técnica no município de Duque de Caxias/RJ: um estudo sobre o Centro Vocacional Tecnológico Olavo Bilac",
   ano: "2026",
